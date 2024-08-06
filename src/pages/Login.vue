@@ -161,4 +161,7 @@ input{
   padding: 10px;
   margin: 8px;
 }
+button:hover {
+  background-color: #58b956;
+}
 </style>

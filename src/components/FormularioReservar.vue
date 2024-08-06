@@ -1,6 +1,8 @@
 <template>
-  <div class="container">
+  <div class="imagenFondo">
+    <div class="container">
     <h1>Reservar</h1>
+    <div class="formulario">
     <label for="">Placa</label>
     <input type="text" v-model="placa" />
     <label for="">Cédula</label>
@@ -9,8 +11,10 @@
     <input type="datetime-local" v-model="fechaInicio" />
     <label for="">Fecha Final</label>
     <input type="datetime-local" v-model="fechaFin" />
-    <button @click="reservar">Guardar</button>
+    <button @click="reservar" class="btnReservar">Guardar</button>
   </div>
+  </div>
+</div>
 </template>
 
 <script scoped>
@@ -86,16 +90,44 @@ export default {
 <style scoped>
 input {
   width: 100%;
+  text-align: center;
 }
 label {
-  font-style: italic;
+  font-style: bold;
+  text-align: left;
 }
-button {
-  width: 50%;
-  height: 40px;
-}
+
 
 .item_large {
   grid-column: span 2; /* El elemento ocupa dos columnas */
+}
+.btnReservar{
+  width: 25%;
+  padding: 10px 10px;
+  margin: 15px;
+  background-color: #dd2136;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+  
+ 
+}
+.btnReservar:hover {
+  background-color: #58b956;
+}
+
+.formulario{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  background-color: #e6e6e6cf;
+  border-radius: 15px;
+  padding: 25px 35px;
+  margin: 25px auto;
+  box-shadow: 0px 0px 15px 5px #dd2136;
 }
 </style>

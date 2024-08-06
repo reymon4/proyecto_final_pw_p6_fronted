@@ -40,7 +40,7 @@
           <td>{{ vehiculo.valorDia }}</td>
 
           <td>
-            <button v-if="sinRese"  @click="reservar(vehiculo.placa)">Reservar</button>
+            <button v-if="sinRese"  @click="reservar(vehiculo.placa)" class="buttonReservar">Reservar</button>
           </td>
         </tr>
       </tbody>
@@ -138,11 +138,12 @@ select:focus {
 .tabla table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 35px;
 }
 
 .tabla th, .tabla td {
-  padding: 10px;
+  padding: 35px;
+  margin: 15px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
@@ -158,6 +159,14 @@ select:focus {
 }
 
 .tabla tr:hover {
-  background-color: #f1f1f1;
+  background-color: #b6b0b0;
 }
+.buttonReservar {
+  background-color: #dd2136;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}	
 </style>

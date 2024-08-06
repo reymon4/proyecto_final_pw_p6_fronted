@@ -215,12 +215,7 @@ export default {
 .container {
   display: grid;
 }
-/*.background {
-  background-image: url('https://www.jemson.com.au/wp-content/uploads/2018/10/brighton-bmw-fitout-11.jpg'); // Ruta a la imagen de fondo 
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-}*/
+
 
 .formulario {
   display: flex;
@@ -254,6 +249,9 @@ button {
   border: none;
   font-size: 15px;
   
+}
+button:hover {
+  background-color: #58b956;
 }
 
 .otros {

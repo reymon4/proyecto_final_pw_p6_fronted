@@ -1,20 +1,23 @@
 <template>
-  <h1>SU RESERVA SE REALIZÓ CORRECTAMENTE</h1>
+  <h1>Su Reserva Se Realizó Correctamente</h1>
+
   <div class="container">
-    <label for="">No. Reserva</label>
-    <p>{{ numero }}</p>
-    <label for="">Fecha de cobro:</label>
-    <p>{{ fechaCobro }}</p>
-    <label for="">Pago con la tarjeta</label>
-    <p>{{ numeroTarjeta }}</p>
-    <label for="">Valor cancelado</label>
-    <p>{{ valorTotal }}</p>
+    <div class="formulario">
+      <label for="">No. Reserva</label>
+      <p>{{ numero }}</p>
+      <label for="">Fecha de cobro:</label>
+      <p>{{ fechaCobro }}</p>
+      <label for="">Pago con la tarjeta</label>
+      <p>{{ numeroTarjeta }}</p>
+      <label for="">Valor cancelado</label>
+      <p>{{ valorTotal }}</p>
+    </div>
   </div>
   <button @click="inicio">Regresar</button>
 </template>
 
 <script>
-import { obtenerCobroFachada } from '@/clients/clienteReserva';
+import { obtenerCobroFachada } from "@/clients/clienteReserva";
 export default {
   props: {
     data: {},
@@ -39,7 +42,6 @@ export default {
     this.numeroTarjeta = this.cobro.numeroTarjeta;
     this.valorTotal = this.cobro.reserva.total;
     this.fechaCobro = new Date();
-
   },
   methods: {
     inicio() {
@@ -47,16 +49,37 @@ export default {
         path: "/inicio",
       });
     },
-    async getCobro(){
-   
-
-    }
+    async getCobro() {},
   },
 };
 </script>
 
 <style scoped>
-button{
-    width: 50%;
-  height: 40px;
-}</style>
+button {
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+}
+button:hover {
+  background-color: #58b956;
+}
+label {
+  font-style: bold;
+  text-align: center;
+  padding: 8px;
+  color: black;
+  font-size: 20px;
+}
+.formulario{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 420px;
+  background-color: #e6e6e6cf;
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px 5px #dd2136;
+}
+</style>
