@@ -1,5 +1,5 @@
 <template>
-  <h1>SELECCIONA UNA MARCA Y MODELO</h1>
+  <h1>Seleccione Una Marca Y Modelo</h1>
   <div class="buscar">
     <label>Marca:</label>
     <select v-model="marca" id="cars" @change="obtenerModelos">
@@ -110,4 +110,54 @@ export default {
 <style scoped>
 /* Estilos para la tabla */
 
+
+label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  font-size:15px;
+  padding: 12px;
+  
+}
+
+select {
+  padding: 8px;
+  margin-bottom: 15px;
+  width: 200px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  
+}
+select:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.tabla table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.tabla th, .tabla td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabla th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+.tabla tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tabla tr:hover {
+  background-color: #f1f1f1;
+}
 </style>

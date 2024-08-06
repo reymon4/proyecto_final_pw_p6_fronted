@@ -27,7 +27,9 @@
 
       <footer>
         <h1>© Programación Web 2024-2024</h1>
-        <h2>Avis Rent a Car System, LLC. Todos los derechos reservados.</h2>
+        <h2>
+        Avis Rent a Car System, LLC. Todos los derechos reservados.
+        </h2>
         <h2>
           Síganos:
           <a

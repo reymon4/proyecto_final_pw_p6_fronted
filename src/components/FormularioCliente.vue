@@ -227,7 +227,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   width: 400px;
-  height: 445px;
+  height: 525px;
   background-color: #e6e6e6cf;
   border-radius: 15px;
   padding: 25px 35px;
@@ -244,20 +244,26 @@ label {
 
 button {
   width: 50%;
-  padding: 10px 20px;
+ 
+  padding: 10px 10px;
   margin: 15px;
   background-color: #dd2136;
   color: white;
   border-radius: 12px;
   cursor: pointer;
   border: none;
+  font-size: 15px;
+  
 }
 
 .otros {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Dos columnas */
   grid-template-rows: repeat(2, 100px); /* Dos filas */
-  gap: 10px; /* Espacio entre las celdas */
+  gap: 10px; /* Espacio entre elementos */
+  justify-items: center; /* Centra horizontalmente los elementos en sus celdas */
+  margin: 20px auto; /* Centra el contenedor en la página */
+
 }
 .item_large {
   grid-column: span 2; /* El elemento ocupa dos columnas */

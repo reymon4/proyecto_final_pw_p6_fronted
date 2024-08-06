@@ -1,5 +1,5 @@
 <template>
-  <h1>ACTUALICE SUS DATOS</h1>
+  <h1>Actualice Sus Datos</h1>
   <RegistroCliente
     v-if="this.cedula !== null"
     tipo="C"
@@ -33,5 +33,6 @@ export default {
   margin: auto;
   width: 80%;
 }
+
 
 </style>
