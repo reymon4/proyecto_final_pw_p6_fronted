@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { mensaje } from "@/clients/mensaje";
+import { mensajeFacade } from "@/clients/mensajeEliminar";
 import {
   consultarTodosFachada,
   eliminarFachada,
@@ -57,11 +57,12 @@ export default {
       this.clientes = data;
     },
     async eliminar(cedula) {
-      var data = await eliminarFachada(cedula);
-      // Actualizar la lista de vehículos después de eliminar
-      mensaje("Eliminando", data, "error");
-      await this.consultarTodos();
-    },
+    // Llamar a mensajeFacade para manejar la confirmación y eliminación
+    await mensajeFacade("Confirmación", "¿Estás seguro de que deseas eliminar este elemento?", "warning", cedula);
+    
+    // Después de la eliminación, actualiza la lista de elementos
+    await this.consultarTodos();
+},
     actualizar(cedula) {
       // Lógica para actualizar el vehículo, por ejemplo: redirigir a una página de actualización con la información del vehículo
       this.$router.push({
