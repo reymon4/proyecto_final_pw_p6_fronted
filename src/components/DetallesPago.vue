@@ -56,15 +56,13 @@ export default {
 
 <style scoped>
 button {
-  width: 50%;
-  margin: 0 auto;
+  width: 10%;
+  margin: 25px auto;
   border-radius: 12px;
   cursor: pointer;
   border: none;
 }
-button:hover {
-  background-color: #58b956;
-}
+
 label {
   font-style: bold;
   text-align: center;
@@ -72,12 +70,12 @@ label {
   color: black;
   font-size: 20px;
 }
-.formulario{
+.formulario {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 300px;
-  height: 420px;
+  height: 440px;
   background-color: #e6e6e6cf;
   border-radius: 15px;
   box-shadow: 0px 0px 15px 5px #dd2136;

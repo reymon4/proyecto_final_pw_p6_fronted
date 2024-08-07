@@ -8,7 +8,9 @@
 
     <label>Modelo:</label>
     <select v-model="modelo" id="cars" @change="buscarVehiculo">
-      <option v-for="(model, index) in modelos" :key="index">{{ model }}</option>
+      <option v-for="(model, index) in modelos" :key="index">
+        {{ model }}
+      </option>
     </select>
   </div>
   <div class="tabla">
@@ -22,7 +24,7 @@
           <th>Año</th>
           <th>Estado</th>
           <th>Valor Diario</th>
-          <th v-if="sinRese"  >Reservar</th>
+          <th v-if="sinRese">Reservar</th>
         </tr>
       </thead>
       <tbody>
@@ -40,7 +42,13 @@
           <td>{{ vehiculo.valorDia }}</td>
 
           <td>
-            <button v-if="sinRese"  @click="reservar(vehiculo.placa)" class="buttonReservar">Reservar</button>
+            <button
+              v-if="sinRese"
+              @click="reservar(vehiculo.placa)"
+              class="buttonReservar"
+            >
+              Reservar
+            </button>
           </td>
         </tr>
       </tbody>
@@ -59,8 +67,8 @@ import {
   buscarModelosPorMarcaFachada,
 } from "@/clients/clienteVehiculo.js";
 export default {
-  props:{
-    sinRese:{}
+  props: {
+    sinRese: {},
   },
   data() {
     return {
@@ -84,25 +92,26 @@ export default {
     },
     async obtenerModelos() {
       var data = await buscarModelosPorMarcaFachada(this.marca);
-      this.modelos = data
+      this.modelos = data;
     },
     async buscarVehiculo() {
       console.log(this.marca);
       console.log(this.modelo);
       //ELIMINAR ESTO CUANDO YA TENGAN EL BACK DE BUSCAR MODELOS
-      this.vehiculos = await buscarPorMarcaYModeloFachada(this.marca,this.modelo);
+      this.vehiculos = await buscarPorMarcaYModeloFachada(
+        this.marca,
+        this.modelo
+      );
       this.teibol = this.vehiculos.length > 0;
     },
     reservar(placa) {
       // Lógica para visualizar el vehículo, por ejemplo: redirigir a una página de visualización con la información del vehículo
       this.$router.push({
         path: "/clientes/reservar",
-        query: { placa:placa  },
-       
+        query: { placa: placa },
       });
-      console.log(placa)
+      console.log(placa);
     },
-
   },
 };
 </script>
@@ -110,14 +119,12 @@ export default {
 <style scoped>
 /* Estilos para la tabla */
 
-
 label {
   font-weight: bold;
   color: #333;
   margin-bottom: 5px;
-  font-size:15px;
+  font-size: 15px;
   padding: 12px;
-  
 }
 
 select {
@@ -128,7 +135,6 @@ select {
   border: 2px solid #ccc;
   background-color: #f9f9f9;
   font-size: 14px;
-  
 }
 select:focus {
   outline: none;
@@ -141,7 +147,8 @@ select:focus {
   margin-top: 35px;
 }
 
-.tabla th, .tabla td {
+.tabla th,
+.tabla td {
   padding: 35px;
   margin: 15px;
   text-align: left;
@@ -168,8 +175,5 @@ select:focus {
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
-}	
-.buttonReservar:hover {
-  background-color: #58b956;
 }
 </style>

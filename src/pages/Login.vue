@@ -2,23 +2,23 @@
   <h1>Inicie Sesión En Su Cuenta Avis</h1>
   <div class="container">
     <div class="formulario">
-    <input
-      type="text"
-      v-model="cedula"
-      placeholder="Ingrese su número de cédula"
-    />
-    <input
-      type="password"
-      v-model="contrasenia"
-      placeholder="Ingrese su contraseña"
-    />
-    <h6>
-      Este sitio está protegido por reCAPTCHA Enterprise y se aplican la
-      Política de privacidad y los Términos de servicio de Google.
-    </h6>
+      <input
+        type="text"
+        v-model="cedula"
+        placeholder="Ingrese su número de cédula"
+      />
+      <input
+        type="password"
+        v-model="contrasenia"
+        placeholder="Ingrese su contraseña"
+      />
+      <h6>
+        Este sitio está protegido por reCAPTCHA Enterprise y se aplican la
+        Política de privacidad y los Términos de servicio de Google.
+      </h6>
 
-    <button @click="inicio">Iniciar Sesión</button>
-  </div>
+      <button @click="inicio">Iniciar Sesión</button>
+    </div>
   </div>
 </template>
 
@@ -68,8 +68,7 @@ export default {
         this.usuario.id = "admin";
         this.usuario.tipo = "E";
         await this.redireccionar();
-      }
-      else {
+      } else {
         try {
           var verificar = (await consultarFachada(this.cedula)) !== null;
           console.log(verificar);
@@ -84,7 +83,11 @@ export default {
             mensaje("Iniciando Sesion...", "El Usuario No existe", "error");
           }
         } catch {
-          mensaje("Iniciando Sesion...", "Revisa tus credenciales y vuelve a intenta", "error");
+          mensaje(
+            "Iniciando Sesion...",
+            "Revisa tus credenciales y vuelve a intenta",
+            "error"
+          );
         }
       }
     },
@@ -92,8 +95,6 @@ export default {
       console.log(this.usuario);
       this.$router.push({ path: "/inicio", usuario: this.usuario });
     },
-
-
 
     mensajeOK() {
       ElMessageBox.alert(
@@ -133,7 +134,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   width: 400px;
-  height: 200px;
+  height: 250px;
   background-color: #e6e6e6cf;
   border-radius: 15px;
   padding: 25px 35px;
@@ -158,11 +159,8 @@ button {
   justify-content: flex;
   align-items: flex;
 }
-input{
+input {
   padding: 10px;
   margin: 8px;
-}
-button:hover {
-  background-color: #58b956;
 }
 </style>

@@ -112,6 +112,7 @@ label {
   grid-column: span 2; /* El elemento ocupa dos columnas */
 }
 
+/*
 .btnReservar {
   width: 25%;
   padding: 10px 10px;
@@ -123,9 +124,7 @@ label {
   border: none;
   font-size: 15px;
 }
-.btnReservar:hover {
-  background-color: #58b956;
-}
+*/
 
 .formulario {
   display: flex;

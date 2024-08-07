@@ -1,88 +1,88 @@
 <template>
   <div class="background">
-  <div class="container">
-    <div class="formulario">
-      <label for="">Cédula</label>
-      <input v-if="funcion === 'insertar'" type="text" v-model="cedula" />
-      <input
-        v-else
-        type="text"
-        v-model="cedula"
-        :disabled="this.funcion === 'visualizar' || this.tipo === 'C'"
-      />
+    <div class="container">
+      <div class="formulario">
+        <label for="">Cédula</label>
+        <input v-if="funcion === 'insertar'" type="text" v-model="cedula" />
+        <input
+          v-else
+          type="text"
+          v-model="cedula"
+          :disabled="this.funcion === 'visualizar' || this.tipo === 'C'"
+        />
 
-      <label for="">Nombre</label>
-      <input v-if="funcion === 'insertar'" type="text" v-model="nombre" />
-      <input
-        v-else
-        type="text"
-        v-model="nombre"
-        :disabled="this.funcion == 'visualizar'"
-      />
+        <label for="">Nombre</label>
+        <input v-if="funcion === 'insertar'" type="text" v-model="nombre" />
+        <input
+          v-else
+          type="text"
+          v-model="nombre"
+          :disabled="this.funcion == 'visualizar'"
+        />
 
-      <label for="">Apellido</label>
-      <input v-if="funcion === 'insertar'" type="text" v-model="apellido" />
-      <input
-        v-else
-        type="text"
-        v-model="apellido"
-        :disabled="this.funcion == 'visualizar'"
-      />
+        <label for="">Apellido</label>
+        <input v-if="funcion === 'insertar'" type="text" v-model="apellido" />
+        <input
+          v-else
+          type="text"
+          v-model="apellido"
+          :disabled="this.funcion == 'visualizar'"
+        />
 
-      <label for="">Fecha de nacimiento</label>
-      <input
-        v-if="funcion === 'insertar'"
-        type="datetime-local"
-        v-model="fechaNacimiento"
-      />
-      <input
-        v-else
-        type="datetime-local"
-        v-model="fechaNacimiento"
-        :disabled="this.funcion == 'visualizar'"
-      />
+        <label for="">Fecha de nacimiento</label>
+        <input
+          v-if="funcion === 'insertar'"
+          type="datetime-local"
+          v-model="fechaNacimiento"
+        />
+        <input
+          v-else
+          type="datetime-local"
+          v-model="fechaNacimiento"
+          :disabled="this.funcion == 'visualizar'"
+        />
 
-      <label for="">Género</label>
-      <input v-if="funcion === 'insertar'" type="text" v-model="genero" />
-      <input
-        v-else
-        type="text"
-        v-model="genero"
-        :disabled="this.funcion == 'visualizar'"
-      />
+        <label for="">Género</label>
+        <input v-if="funcion === 'insertar'" type="text" v-model="genero" />
+        <input
+          v-else
+          type="text"
+          v-model="genero"
+          :disabled="this.funcion == 'visualizar'"
+        />
 
-      <label for="">Contraseña</label>
-      <input
-        v-if="funcion === 'insertar'"
-        type="password"
-        v-model="contrasenia"
-      />
-      <input
-        v-else
-        type="password"
-        v-model="contrasenia"
-        :disabled="this.funcion == 'visualizar'"
-      />
+        <label for="">Contraseña</label>
+        <input
+          v-if="funcion === 'insertar'"
+          type="password"
+          v-model="contrasenia"
+        />
+        <input
+          v-else
+          type="password"
+          v-model="contrasenia"
+          :disabled="this.funcion == 'visualizar'"
+        />
 
-      <div v-if="funcion === 'insertar'" class="guardado">
-        <h6>Lea nuestros términos y condiciones</h6>
-        <button @click="guardar">Guardar</button>
-      </div>
-      <div v-if="funcion === 'visualizar'" class="otros">
-        <h6 class="item_large">Lea nuestros términos y condiciones</h6>
-        <button v-if="tipo === 'C'" @click="inicio()">Volver</button>
-        <button v-else @click="volver()">Volver</button>
-        <button @click="actualizar()">Actualizar</button>
-      </div>
-      <div v-if="funcion === 'actualizar'" class="otros">
-        <h6 class="item_large">Lea nuestros términos y condiciones</h6>
-        <button v-if="tipo === 'C'" @click="inicio()">Volver</button>
-        <button v-else @click="volver()">Volver</button>
-        <button @click="guardarCambios()">Guardar Cambios</button>
+        <div v-if="funcion === 'insertar'" class="guardado">
+          <h6>Lea nuestros términos y condiciones</h6>
+          <button @click="guardar">Guardar</button>
+        </div>
+        <div v-if="funcion === 'visualizar'" class="otros">
+          <h6 class="item_large">Lea nuestros términos y condiciones</h6>
+          <button v-if="tipo === 'C'" @click="inicio()">Volver</button>
+          <button v-else @click="volver()">Volver</button>
+          <button @click="actualizar()">Actualizar</button>
+        </div>
+        <div v-if="funcion === 'actualizar'" class="otros">
+          <h6 class="item_large">Lea nuestros términos y condiciones</h6>
+          <button v-if="tipo === 'C'" @click="inicio()">Volver</button>
+          <button v-else @click="volver()">Volver</button>
+          <button @click="guardarCambios()">Guardar Cambios</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script scoped>
@@ -216,16 +216,15 @@ export default {
   display: grid;
 }
 
-
 .formulario {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 400px;
-  height: 525px;
+  height: 475px;
   background-color: #e6e6e6cf;
   border-radius: 15px;
-  padding: 25px 35px;
+  padding: 5px 35px;
   margin: 25px auto;
   box-shadow: 0px 0px 10px 5px #4d4a4a83;
 }
@@ -238,8 +237,9 @@ label {
 }
 
 button {
+  /*
   width: 50%;
- 
+
   padding: 10px 10px;
   margin: 15px;
   background-color: #dd2136;
@@ -248,20 +248,16 @@ button {
   cursor: pointer;
   border: none;
   font-size: 15px;
-  
-}
-button:hover {
-  background-color: #58b956;
+  */
 }
 
 .otros {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-  grid-template-rows: repeat(2, 100px); /* Dos filas */
+  grid-template-rows: repeat(1, 50px); /* Dos filas */
   gap: 10px; /* Espacio entre elementos */
   justify-items: center; /* Centra horizontalmente los elementos en sus celdas */
-  margin: 20px auto; /* Centra el contenedor en la página */
-
+  /*margin: 20px auto;*/ /* Centra el contenedor en la página */
 }
 .item_large {
   grid-column: span 2; /* El elemento ocupa dos columnas */

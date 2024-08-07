@@ -26,7 +26,6 @@
 </template>
 
 <script>
-
 import router from "@/router/router";
 export default {
   props: {
@@ -62,9 +61,9 @@ menu {
 
 .menu a:hover {
   font-weight: bold;
-  color:white;
+  color: white;
 }
 .router-link-exact-active {
- font-weight: bold;
+  font-weight: bold;
 }
 </style>

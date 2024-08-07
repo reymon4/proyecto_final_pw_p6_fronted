@@ -1,12 +1,12 @@
 <template>
   <h1>Realizar Pago de Reservación</h1>
- <div class="formulario">
-  <input
-    type="text"
-    v-model="numeroTarjeta"
-    placeholder="Ingrese el número de su tarjeta"
-  />
-  <button @click="reservar">Pagar</button>
+  <div class="formulario">
+    <input
+      type="text"
+      v-model="numeroTarjeta"
+      placeholder="Ingrese el número de su tarjeta"
+    />
+    <button @click="reservar">Pagar</button>
   </div>
 </template>
 
@@ -61,26 +61,25 @@ export default {
 };
 </script>
 <style scoped>
-input{
+input {
   padding: 10px;
   margin: 8px;
   border-radius: 12px;
 }
+/*
 button {
   width: 25%;
   padding: 10px 10px;
   margin: 15px;
-  background-color: #dd2136;
+
   color: white;
   border-radius: 12px;
   cursor: pointer;
   border: none;
   font-size: 15px;
-}
-button:hover {
-  background-color: #58b956;
-}
-.formulario{
+}*/
+
+.formulario {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,6 +89,6 @@ button:hover {
   border-radius: 15px;
   padding: 25px 35px;
   margin: 25px auto;
-  box-shadow: 0px 0px 15px 5px  #4d4a4a83;
+  box-shadow: 0px 0px 15px 5px #4d4a4a83;
 }
 </style>

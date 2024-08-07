@@ -31,7 +31,7 @@ import {
   retirarVehiculoReservadoFachada,
   obtenerReservaFachada,
 } from "@/clients/clienteReserva";
-import {mensaje} from '@/clients/mensaje'
+import { mensaje } from "@/clients/mensaje";
 export default {
   data() {
     return {
@@ -49,12 +49,11 @@ export default {
 
   methods: {
     async buscar() {
-      
-      if(this.reserva === null || this.reserva ===''){
-        mensaje('Retiro', 'No ha ingresado el número de reserva', 'error')
-      }else{
+      if (this.reserva === null || this.reserva === "") {
+        mensaje("Retiro", "No ha ingresado el número de reserva", "error");
+      } else {
         var data = await obtenerReservaFachada(this.reserva);
-        if(data.cedula !== undefined){
+        if (data.cedula !== undefined) {
           console.log(data);
           if (data !== undefined) {
             this.placa = data.placa;
@@ -65,21 +64,22 @@ export default {
             this.estado = data.estado;
             this.crear = true;
           }
-        }else{
-          mensaje('Retiro', 'El número de reserva ingresado no existe', 'error')
+        } else {
+          mensaje(
+            "Retiro",
+            "El número de reserva ingresado no existe",
+            "error"
+          );
         }
-        
       }
-      
     },
     async retirar() {
       var data = await retirarVehiculoReservadoFachada(this.reserva);
-      if(data.includes('EXITO')){
-        mensaje('Retiro', 'Se ha ejecutado el retiro exitosamente', 'success')
-      }else{
-        mensaje('Retiro', data, 'error')
+      if (data.includes("EXITO")) {
+        mensaje("Retiro", "Se ha ejecutado el retiro exitosamente", "success");
+      } else {
+        mensaje("Retiro", data, "error");
       }
-      
     },
   },
 };
@@ -111,15 +111,15 @@ label {
   display: grid;
   justify-content: center;
   align-items: center;
-  width:100%;
+  width: 100%;
 }
 
 .idRetirar {
   line-height: 150%;
   width: 45%;
 }
-button{
-    width: 50%;
+button {
+  width: 50%;
   height: 40px;
 }
 </style>

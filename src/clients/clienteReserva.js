@@ -86,7 +86,7 @@ export const cobroFachada = async (body) => {
 export const retirarVehiculoReservadoFachada = async (numero) => {
   return await retirarVehiculoReservado(numero);
 };
-
+//
 export const obtenerReservaFachada = async (numero) => {
   return await obtenerReserva(numero);
 };
