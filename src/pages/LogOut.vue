@@ -1,5 +1,5 @@
 <template>
-  <h1>SEGURO QUE QUIERES CERRAR SESION</h1>
+  <h1>Seguro Que Quieres Cerrar Sesion</h1>
   <div class="container">
     <button @click="salir">Salir</button>
   </div>

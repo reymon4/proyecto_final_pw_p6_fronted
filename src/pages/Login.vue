@@ -58,7 +58,7 @@ export default {
         this.contrasenia === ""
       ) {
         mensaje("Error....", "No puedes dejar los campos vacios", "error");
-      } else if (this.cedula === "admin" && this.contrasenia === "admin") {
+      } else if (this.cedula === "daniel"||"henry"||"juan"||"willan"||"reymon" && this.contrasenia === "admin") {
         mensaje(
           "Iniciando Sesion...",
           "Iniciando Sesion como Administrador",
@@ -68,7 +68,8 @@ export default {
         this.usuario.id = "admin";
         this.usuario.tipo = "E";
         await this.redireccionar();
-      } else {
+      }
+      else {
         try {
           var verificar = (await consultarFachada(this.cedula)) !== null;
           console.log(verificar);
@@ -137,7 +138,7 @@ export default {
   border-radius: 15px;
   padding: 25px 35px;
   margin: 25px auto;
-  box-shadow: 0px 0px 10px 5px #dd2136;
+  box-shadow: 0px 0px 10px 5px#4d4a4a83;
 }
 h1 {
   align-items: center;

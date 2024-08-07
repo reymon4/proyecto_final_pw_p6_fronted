@@ -169,4 +169,7 @@ select:focus {
   padding: 5px 10px;
   cursor: pointer;
 }	
+.buttonReservar:hover {
+  background-color: #58b956;
+}
 </style>
