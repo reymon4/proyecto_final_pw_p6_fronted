@@ -54,16 +54,17 @@ menu {
   color: #333;
   color: #f8f9fa;
   margin: 1%;
-  font-weight: bold;
+
   font-size: 3vmin;
   padding: 1vh 1vw;
   border-radius: 10px;
 }
 
 .menu a:hover {
-  background: #000000;
+  font-weight: bold;
+  color:white;
 }
 .router-link-exact-active {
-  background: #000000;
+ font-weight: bold;
 }
 </style>

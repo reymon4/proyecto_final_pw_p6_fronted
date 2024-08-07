@@ -143,7 +143,7 @@ footer {
 }
 #idNavBar {
   width: 90%;
-  text-align: left;
+  text-align: right
 }
 
 .router {
