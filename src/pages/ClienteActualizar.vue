@@ -31,7 +31,7 @@ export default {
 <style scoped>
 .registro {
   margin: auto;
-  width: 80%;
+  width: 100%;
 }
 
 

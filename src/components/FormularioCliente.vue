@@ -1,85 +1,86 @@
 <template>
-  <div class="background">
-    <div class="container">
-      <div class="formulario">
-        <label for="">Cédula</label>
-        <input v-if="funcion === 'insertar'" type="text" v-model="cedula" />
-        <input
-          v-else
-          type="text"
-          v-model="cedula"
-          :disabled="this.funcion === 'visualizar' || this.tipo === 'C'"
-        />
+  <div class="container">
+    <div class="image">
+      <img :src="imageUrl" alt="Imagen" />
+    </div>
+    <div class="formulario">
+      <label for="">Cédula</label>
+      <input v-if="funcion === 'insertar'" type="text" v-model="cedula" />
+      <input
+        v-else
+        type="text"
+        v-model="cedula"
+        :disabled="this.funcion === 'visualizar' || this.tipo === 'C'"
+      />
 
-        <label for="">Nombre</label>
-        <input v-if="funcion === 'insertar'" type="text" v-model="nombre" />
-        <input
-          v-else
-          type="text"
-          v-model="nombre"
-          :disabled="this.funcion == 'visualizar'"
-        />
+      <label for="">Nombre</label>
+      <input v-if="funcion === 'insertar'" type="text" v-model="nombre" />
+      <input
+        v-else
+        type="text"
+        v-model="nombre"
+        :disabled="this.funcion == 'visualizar'"
+      />
 
-        <label for="">Apellido</label>
-        <input v-if="funcion === 'insertar'" type="text" v-model="apellido" />
-        <input
-          v-else
-          type="text"
-          v-model="apellido"
-          :disabled="this.funcion == 'visualizar'"
-        />
+      <label for="">Apellido</label>
+      <input v-if="funcion === 'insertar'" type="text" v-model="apellido" />
+      <input
+        v-else
+        type="text"
+        v-model="apellido"
+        :disabled="this.funcion == 'visualizar'"
+      />
 
-        <label for="">Fecha de nacimiento</label>
-        <input
-          v-if="funcion === 'insertar'"
-          type="datetime-local"
-          v-model="fechaNacimiento"
-        />
-        <input
-          v-else
-          type="datetime-local"
-          v-model="fechaNacimiento"
-          :disabled="this.funcion == 'visualizar'"
-        />
+      <label for="">Fecha de nacimiento</label>
+      <input
+        v-if="funcion === 'insertar'"
+        type="datetime-local"
+        v-model="fechaNacimiento"
+      />
+      <input
+        v-else
+        type="datetime-local"
+        v-model="fechaNacimiento"
+        :disabled="this.funcion == 'visualizar'"
+      />
 
-        <label for="">Género</label>
-        <input v-if="funcion === 'insertar'" type="text" v-model="genero" />
-        <input
-          v-else
-          type="text"
-          v-model="genero"
-          :disabled="this.funcion == 'visualizar'"
-        />
+      <label for="">Género</label>
+      <input v-if="funcion === 'insertar'" type="text" v-model="genero" />
+      <input
+        v-else
+        type="text"
+        v-model="genero"
+        :disabled="this.funcion == 'visualizar'"
+      />
 
-        <label for="">Contraseña</label>
-        <input
-          v-if="funcion === 'insertar'"
-          type="password"
-          v-model="contrasenia"
-        />
-        <input
-          v-else
-          type="password"
-          v-model="contrasenia"
-          :disabled="this.funcion == 'visualizar'"
-        />
+      <label for="">Contraseña</label>
+      <input
+        v-if="funcion === 'insertar'"
+        type="password"
+        v-model="contrasenia"
+      />
+      <input
+        v-else
+        type="password"
+        v-model="contrasenia"
+        :disabled="this.funcion == 'visualizar'"
+      />
 
-        <div v-if="funcion === 'insertar'" class="guardado">
-          <h6>Lea nuestros términos y condiciones</h6>
-          <button @click="guardar">Guardar</button>
-        </div>
-        <div v-if="funcion === 'visualizar'" class="otros">
-          <h6 class="item_large">Lea nuestros términos y condiciones</h6>
-          <button v-if="tipo === 'C'" @click="inicio()">Volver</button>
-          <button v-else @click="volver()">Volver</button>
-          <button @click="actualizar()">Actualizar</button>
-        </div>
-        <div v-if="funcion === 'actualizar'" class="otros">
-          <h6 class="item_large">Lea nuestros términos y condiciones</h6>
-          <button v-if="tipo === 'C'" @click="inicio()">Volver</button>
-          <button v-else @click="volver()">Volver</button>
-          <button @click="guardarCambios()">Guardar Cambios</button>
-        </div>
+      <div v-if="funcion === 'insertar'" class="guardado">
+        <h6>Lea nuestros términos y condiciones</h6>
+        <button @click="guardar">Guardar</button>
+      </div>
+      <div v-if="funcion === 'visualizar'" class="otros">
+        <h6 class="item_large">Lea nuestros términos y condiciones</h6>
+        <button v-if="tipo === 'C'" @click="inicio()">Volver</button>
+        <button v-else @click="volver()">Volver</button>
+        <button @click="actualizar()">Actualizar</button>
+      </div>
+      <div v-if="funcion === 'actualizar'" class="otros">
+        <h6 class="item_large">Lea nuestros términos y condiciones</h6>
+        <button v-if="tipo === 'C'" @click="inicio()">Volver</button>
+        <button v-else @click="volver()">Volver</button>
+        <button @click="guardarCambios()" class="btnActulizar">Guardar Cambios</button>
       </div>
     </div>
   </div>
@@ -118,6 +119,8 @@ export default {
       contrasenia: null,
       genero: null,
       registro: null,
+      imageUrl:
+        "https://scontent.fuio10-1.fna.fbcdn.net/v/t1.6435-9/94199014_2449597351808365_7344174148064641024_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=0327a3&_nc_ohc=L9hXpcrB9UoQ7kNvgFHdxIV&_nc_ht=scontent.fuio10-1.fna&oh=00_AYAmHD7tX-coq4-VEznNPGDkRTwagWllZzFO4IOrSfTdLQ&oe=66DB275F",
     };
   },
   methods: {
@@ -213,19 +216,32 @@ export default {
 
 <style scoped>
 .container {
-  display: grid;
+ display: grid;
+ grid-template-columns:1fr 1fr;
+ height: 100vh;
+}
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .formulario {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 400px;
-  height: 475px;
+  width: 300px;
+  height: 600px;
   background-color: #e6e6e6cf;
   border-radius: 15px;
   padding: 5px 35px;
   margin: 25px auto;
+  margin: 65px auto;
   box-shadow: 0px 0px 10px 5px #4d4a4a83;
 }
 
@@ -235,21 +251,23 @@ label {
   padding: 8px;
   color: black;
 }
-
+input {
+  padding: 4px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 button {
-  /*
-  width: 50%;
-
-  padding: 10px 10px;
-  margin: 15px;
-  background-color: #dd2136;
-  color: white;
-  border-radius: 12px;
+  width: 60%;
+  height: 50px;
   cursor: pointer;
   border: none;
-  font-size: 15px;
-  */
+  background-color: #dd2136;
+  color: white;
 }
+.btnActulizar {
+  background-color: #1c0fcf;
+}	
 
 .otros {
   display: grid;

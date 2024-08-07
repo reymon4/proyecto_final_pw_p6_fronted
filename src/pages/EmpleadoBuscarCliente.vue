@@ -3,8 +3,12 @@
   <div class="buscar">
     <label>Apellido:</label>
     <input type="text" name="" v-model="apellido" />
-    <button @click="consultarTodos()">Buscar</button>
+    <button @click="consultarTodos()" class="btnBuscar">Buscar</button>
   </div>
+  <div class="container">
+    <div class="image">
+      <img :src="imageUrl" alt="Imagen" />
+    </div>
   <div class="tabla">
     <table>
       <thead>
@@ -36,6 +40,7 @@
       </tbody>
     </table>
   </div>
+</div>
 </template>
 
 <script>
@@ -49,6 +54,8 @@ export default {
     return {
       apellido: null,
       clientes: [],
+      imageUrl:
+        "https://www.ekathimerini.com/resources/2020-08/avis_photo-thumb-large-thumb-large.jpg",
     };
   },
   methods: {
@@ -82,38 +89,69 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos para la tabla */
-.tabla {
-  margin-top: 20px;
+.container {
   display: grid;
-  width: 100%;
-  border-collapse: collapse;
+  grid-template-columns: 0.5fr 1fr;
+  height: 50vh;
+}
+.image {
+  
+  display: flex;
+  align-items: center;
   justify-content: center;
+  padding: 15px;
 }
-/* Estilos para las celdas de encabezado */
-.tabla th {
-  background-color: #4b3f53;
-  /*   border: 1px solid #dddddd; */
-  padding: 8px;
-  text-align: left;
-  color: #f1bf57;
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tabla table {
+  width: 25%;
+  border-collapse: collapse;
 }
 
-/* Estilos para las celdas de datos */
+.tabla th,
 .tabla td {
-  border: 1px solid #dddddd;
-  padding: 8px;
+  padding: 35px;
+  margin: 15px;
   text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Estilos para las filas impares */
-.tabla tr:nth-child(odd) {
+.tabla th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+.tabla tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Bordes redondos para la tabla */
-.tabla {
-  border-radius: 10px;
-  overflow: hidden;
+.tabla tr:hover {
+  background-color: #b6b0b0;
 }
+label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 15px;
+  padding: 12px;
+}
+input {
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid #1a1919;
+}
+.btnBuscar {
+  background-color: #dd2136;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 15px;
+  cursor: pointer;
+}	
+
 </style>

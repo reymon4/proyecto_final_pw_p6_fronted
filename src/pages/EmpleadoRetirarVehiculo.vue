@@ -1,7 +1,6 @@
 <template>
   <h1>¿TIENE RESERVA?</h1>
   <button @click="reserva()">Reserva</button>
-  <button @click="sinReservar()">Sin reserva</button>
   <VehiculoReservado v-if="conReserva" />
   <RetirarSinReserva v-if="sinReserva" />
 </template>
@@ -9,11 +8,10 @@
 <script>
 import { mensaje } from "@/clients/mensaje";
 import VehiculoReservado from "@/components/VehiculoReservado.vue";
-import RetirarSinReserva from "@/components/RetirarSinReserva.vue";
+
 export default {
   components: {
     VehiculoReservado,
-    RetirarSinReserva,
   },
   data() {
     return {

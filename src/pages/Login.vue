@@ -1,7 +1,10 @@
 <template>
-  <h1>Inicie Sesión En Su Cuenta Avis</h1>
   <div class="container">
+    <div class="image">
+      <img :src="imageUrl" alt="Imagen" />
+    </div>
     <div class="formulario">
+      <h2>Inicie Sesión En Su Cuenta Avis</h2>
       <input
         type="text"
         v-model="cedula"
@@ -36,6 +39,8 @@ export default {
     return {
       cedula: null,
       contrasenia: null,
+      imageUrl:
+        "https://fleetnews.gr/wp-content/uploads/2021/04/Avis_Photo-scaled-1.jpg",
 
       usuario: {
         id: null,
@@ -99,7 +104,7 @@ export default {
     mensajeOK() {
       ElMessageBox.alert(
         "Credenciales Correctas",
-        "¡Credenciales aceptadas correctamente!",
+        "Tus Credenciales Fueron válidadas Correctamente",
         {
           confirmButtonText: "Aceptar",
           type: "success",
@@ -122,6 +127,22 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+.image {
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .messageBox {
   background-color: #833e3e !important;
   color: rgb(221, 23, 23) 3 !important;
@@ -133,15 +154,15 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 400px;
-  height: 250px;
+  width: 300px;
+  height: 450px;
   background-color: #e6e6e6cf;
   border-radius: 15px;
   padding: 25px 35px;
-  margin: 25px auto;
-  box-shadow: 0px 0px 10px 5px#4d4a4a83;
+  margin: 65px auto;
+  box-shadow: 0px 0px 10px 5px #4d4a4a83;
 }
-h1 {
+h2 {
   align-items: center;
   font-style: bold;
 }
@@ -149,18 +170,16 @@ h1 {
 button {
   width: 50%;
   height: 40px;
-  border-radius: 12px;
   cursor: pointer;
   border: none;
-}
-.container {
-  display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(1fr, 1fr));
-  justify-content: flex;
-  align-items: flex;
+  margin-top: 65px;
+  background-color: #dd2136;
+  color: white;
 }
 input {
   padding: 10px;
-  margin: 8px;
+  margin: 20px;
+  border: none;
+  border-radius: 10px;
 }
 </style>

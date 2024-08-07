@@ -1,4 +1,4 @@
-<template>
+<template>  
   <h1>Seleccione Una Marca Y Modelo</h1>
   <div class="buscar">
     <label>Marca:</label>
@@ -56,6 +56,9 @@
     <p v-else>
       Seleccione la marca y el modelo para mostrar los vehículos disponibles.
     </p>
+    <div class="image">
+      <img :src="imageUrl" alt="Imagen" />
+    </div>
   </div>
 </template>
 
@@ -79,6 +82,9 @@ export default {
       marcas: [],
       modelos: [],
       usuario: null,
+      imageUrl:
+        "https://scontent.fuio10-1.fna.fbcdn.net/v/t39.30808-6/335607927_217456507476700_4537265256819257362_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=kObVQzK56A8Q7kNvgGRr0Nb&_nc_ht=scontent.fuio10-1.fna&oh=00_AYCb_vAGS2DE13x78p8HbSjpMIDjNgsP8IEVq9ma-K4NWQ&oe=66B98B33",
+
     };
   },
   mounted() {
@@ -118,7 +124,16 @@ export default {
 
 <style scoped>
 /* Estilos para la tabla */
-
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image img {
+  width: 35%;
+  object-fit: cover;
+  padding: 15px;
+}
 label {
   font-weight: bold;
   color: #333;

@@ -1,19 +1,23 @@
 <template>
-  <h1>SELECCIONE UNA MARCA</h1>
+  <h1>Seleccione una Marca</h1>
   <div class="buscar">
     <label>Marca:</label>
     <select v-model="marca" id="cars" @change="buscarVehiculo">
       <option v-for="(marc, index) in marcas" :key="index">{{ marc }}</option>
     </select>
   </div>
+  <div class="container">
+    <div class="image">
+      <img :src="imageUrl" alt="Imagen" />
+    </div>
   <div class="tabla">
     <table v-if="teibol">
       <thead>
         <tr>
           <th>N°</th>
           <th>Placa</th>
-          <th>Modelo</th>
           <th>Marca</th>
+          <th>Modelo</th>
           <th>Visualizar</th>
           <th>Actualizar</th>
           <th>Eliminar</th>
@@ -26,15 +30,16 @@
           <td>{{ vehiculo.placa }}</td>
           <td>{{ vehiculo.modelo }}</td>
           <td>{{ vehiculo.marca }}</td>
-          <td><button @click="visualizar(vehiculo)">Visualizar</button></td>
-          <td><button @click="actualizar(vehiculo)">Actualizar</button></td>
+          <td><button @click="visualizar(vehiculo)" class="buttonVisu">Visualizar</button></td>
+          <td><button @click="actualizar(vehiculo)" class="buttonActualizar">Actualizar</button></td>
           <td>
-            <button @click="eliminarVehiculo(vehiculo.placa)">Eliminar</button>
+            <button @click="eliminarVehiculo(vehiculo.placa)" class="buttonDelete">Eliminar</button>
           </td>
         </tr>
       </tbody>
     </table>
     <p v-else>Seleccione la marca para mostrar los vehículos disponibles.</p>
+  </div>
   </div>
 </template>
 
@@ -52,6 +57,8 @@ export default {
       teibol: false,
       vehiculos: [],
       marcas: [],
+      imageUrl:
+        "https://goingawesomeplaces.com/wp-content/uploads/2020/07/avis-preferred-customer-booth.jpg",
     };
   },
   mounted() {
@@ -94,38 +101,82 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos para la tabla */
-.tabla {
-  margin-top: 20px;
-  display: grid;
-  width: 100%;
-  border-collapse: collapse;
+.container {
+ display: grid;
+ grid-template-columns:0.5fr 1fr;
+ height: 50vh;
+}
+.image {
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
-/* Estilos para las celdas de encabezado */
-.tabla th {
-  background-color: #4b3f53;
-  /*   border: 1px solid #dddddd; */
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+select {
   padding: 8px;
-  text-align: left;
-  color: #f1bf57;
+  margin-bottom: 15px;
+  width: 200px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 14px;
+}
+select:focus {
+  outline: none;
+  border-color: #666;
+}
+.tabla table {
+  width: 25%;
+  border-collapse: collapse;
 }
 
-/* Estilos para las celdas de datos */
+.tabla th,
 .tabla td {
-  border: 1px solid #dddddd;
-  padding: 8px;
+  padding: 15px;
+  margin: 10px;
   text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Estilos para las filas impares */
-.tabla tr:nth-child(odd) {
+.tabla th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+.tabla tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Bordes redondos para la tabla */
-.tabla {
-  border-radius: 10px;
-  overflow: hidden;
+.tabla tr:hover {
+  background-color: #b6b0b0;
+}
+.buttonVisu{
+  background-color: #6aad78;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.buttonActualizar{
+  background-color: #adac6a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.buttonDelete {
+  background-color: #dd2136;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 </style>

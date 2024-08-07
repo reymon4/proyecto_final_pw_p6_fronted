@@ -1,5 +1,5 @@
 <template>
-  <h1>Registre su cuenta Avis</h1>
+  <h1>Formulario de Registro</h1>
   <RegistroCliente
     class="registro"
     tipo="C"
@@ -19,9 +19,6 @@ export default {
 </script>
 
 <style scoped>
-.registro {
-  margin: auto;
-  width: 80%;
-}
+
 
 </style>

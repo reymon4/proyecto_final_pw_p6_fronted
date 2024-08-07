@@ -1,94 +1,100 @@
 <template>
   <div class="container">
-    <hr />
-    <label for="">Placa</label>
-    <input v-if="funcion === 'insertar'" type="text" v-model="placa" />
-    <input
-      v-else
-      type="text"
-      v-model="placa"
-      :disabled="this.funcion == 'visualizar'"
-    />
+    <div class="formularioV">
+      <h2>Datos del Vehículo</h2>
+      <hr />
+      <label for="">Placa:</label>
+      <input v-if="funcion === 'insertar'" type="text" v-model="placa" />
+      <input
+        v-else
+        type="text"
+        v-model="placa"
+        :disabled="this.funcion == 'visualizar'"
+      />
+      <label for="">Marca:</label>
+      <input v-if="funcion === 'insertar'" type="text" v-model="marca" />
+      <input
+        v-else
+        type="text"
+        v-model="marca"
+        :disabled="this.funcion == 'visualizar'"
+      />
+      <label for="">Modelo:</label>
+      <input v-if="funcion === 'insertar'" type="text" v-model="modelo" />
+      <input
+        v-else
+        type="text"
+        v-model="modelo"
+        :disabled="this.funcion == 'visualizar'"
+      />
 
-    <label for="">Modelo</label>
-    <input v-if="funcion === 'insertar'" type="text" v-model="modelo" />
-    <input
-      v-else
-      type="text"
-      v-model="modelo"
-      :disabled="this.funcion == 'visualizar'"
-    />
+      
 
-    <label for="">Marca</label>
-    <input v-if="funcion === 'insertar'" type="text" v-model="marca" />
-    <input
-      v-else
-      type="text"
-      v-model="marca"
-      :disabled="this.funcion == 'visualizar'"
-    />
+      <label for="">Año:</label>
+      <input v-if="funcion === 'insertar'" type="text" v-model="anio" />
+      <input
+        v-else
+        type="text"
+        v-model="anio"
+        :disabled="this.funcion == 'visualizar'"
+      />
 
-    <label for="">Año</label>
-    <input v-if="funcion === 'insertar'" type="text" v-model="anio" />
-    <input
-      v-else
-      type="text"
-      v-model="anio"
-      :disabled="this.funcion == 'visualizar'"
-    />
+      <label for="">País:</label>
+      <input v-if="funcion === 'insertar'" type="text" v-model="pais" />
+      <input
+        v-else
+        type="text"
+        v-model="pais"
+        :disabled="this.funcion == 'visualizar'"
+      />
 
-    <label for="">País</label>
-    <input v-if="funcion === 'insertar'" type="text" v-model="pais" />
-    <input
-      v-else
-      type="text"
-      v-model="pais"
-      :disabled="this.funcion == 'visualizar'"
-    />
-
-    <label for="">Cilindraje</label>
-    <input v-if="funcion === 'insertar'" type="text" v-model="cilindraje" />
-    <input
-      v-else
-      type="text"
-      v-model="cilindraje"
-      :disabled="this.funcion == 'visualizar'"
-    />
-    <label for="">Avalúo</label>
-    <input v-if="funcion === 'insertar'" type="number" v-model="avaluo" />
-    <input
-      v-else
-      type="number"
-      v-model="avaluo"
-      :disabled="this.funcion == 'visualizar'"
-    />
-    <label for="">Valor diario</label>
-    <input v-if="funcion === 'insertar'" type="number" v-model="valorDia" />
-    <input
-      v-else
-      type="number"
-      v-model="valorDia"
-      :disabled="this.funcion == 'visualizar'"
-    />
-    <label for="">Estado</label>
-    <input v-if="funcion === 'insertar'" type="text" v-model="estado" />
-    <input
-      v-else
-      type="text"
-      v-model="estado"
-      :disabled="this.funcion == 'visualizar'"
-    />
-    <hr />
-    <div v-if="funcion === 'insertar'" class="guardado">
-      <button @click="guardar">Guardar</button>
+      <label for="">Cilindraje:</label>
+      <input v-if="funcion === 'insertar'" type="text" v-model="cilindraje" />
+      <input
+        v-else
+        type="text"
+        v-model="cilindraje"
+        :disabled="this.funcion == 'visualizar'"
+      />
+      <label for="">Avalúo:</label>
+      <input v-if="funcion === 'insertar'" type="number" v-model="avaluo" />
+      <input
+        v-else
+        type="number"
+        v-model="avaluo"
+        :disabled="this.funcion == 'visualizar'"
+      />
+      <label for="">Valor diario:</label>
+      <input v-if="funcion === 'insertar'" type="number" v-model="valorDia" />
+      <input
+        v-else
+        type="number"
+        v-model="valorDia"
+        :disabled="this.funcion == 'visualizar'"
+      />
+      <label for="">Estado:</label>
+      <input v-if="funcion === 'insertar'" type="text" v-model="estado" />
+      <input
+        v-else
+        type="text"
+        v-model="estado"
+        :disabled="this.funcion == 'visualizar'"
+      />
+      <hr />
+      <div v-if="funcion === 'insertar'" class="guardado">
+        <button @click="guardar">Guardar</button>
+      </div>
+      <div v-if="funcion === 'visualizar'" class="otros">
+        <button @click="volver()">Volver</button>
+        <button @click="actualizar()">Actualizar</button>
+      </div>
+      <div v-if="funcion === 'actualizar'" class="otros">
+        <button @click="volver()">Volver</button>
+        <button @click="guardarCambios()">Guardar Cambios</button>
+      </div>
     </div>
-    <div v-if="funcion === 'visualizar'" class="otros">
-      <button @click="volver()">Volver</button>
-      <button @click="actualizar()">Actualizar</button>
-    </div>
-    <div v-if="funcion === 'actualizar'" class="otros">
-      <button @click="volver()">Volver</button>
-      <button @click="guardarCambios()">Guardar Cambios</button>
+    <div class="image">
+      <img :src="imageUrl" alt="Imagen" />
     </div>
   </div>
 </template>
@@ -126,6 +132,8 @@ export default {
       avaluo: null,
       valorDia: null,
       estado: null,
+      imageUrl:
+        "https://th.bing.com/th/id/R.96e65a9f92422062347327d8def51466?rik=sVi6PQzOMQHlrw&riu=http%3a%2f%2fwww.autoo.com.br%2ffotos%2f2016%2f8%2f1280_960%2fMarcasCarros_01082016_3160_1280_960.jpg&ehk=ixC1UHom42r5N81ExNcHWZybom25IcIaexAcolF7vgk%3d&risl=&pid=ImgRaw&r=0",
     };
   },
   methods: {
@@ -221,15 +229,50 @@ export default {
 </script>
 
 <style scoped>
-.container {
+/*.container {
   display: grid;
   grid-template-columns: repeat(1, 1fr); /* Dos columnas */
-  grid-template-rows: repeat(12, 2fr); /* Dos filas */
+/*grid-template-rows: repeat(12, 2fr); */
+/* Dos filas */
+/*}*/
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 45px;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+ 
+}
+.formularioV {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 550px;
+  background-color: #e6e6e6cf;
+  border-radius: 15px;
+  padding: 25px 35px;
+  margin: 35px auto;
+  box-shadow: 0px 0px 10px 5px #4d4a4a83;
 }
 
 label {
-  font-style: italic;
+  font-style: bold;
   text-align: left;
+  color: #000;
+}
+input{
+  padding: 5px;
+  border: none;
+  border-radius: 8px;
 }
 
 button {

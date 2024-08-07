@@ -1,8 +1,9 @@
 <template>
-  <h1>Su Reserva Se Realizó Correctamente</h1>
+ 
 
   <div class="container">
     <div class="formulario">
+      <h1>Reserva realizada con Exito</h1>
       <label for="">No. Reserva</label>
       <p>{{ numero }}</p>
       <label for="">Fecha de cobro:</label>
@@ -11,9 +12,9 @@
       <p>{{ numeroTarjeta }}</p>
       <label for="">Valor cancelado</label>
       <p>{{ valorTotal }}</p>
+      <button @click="inicio">Regresar</button>
     </div>
   </div>
-  <button @click="inicio">Regresar</button>
 </template>
 
 <script>
@@ -56,8 +57,8 @@ export default {
 
 <style scoped>
 button {
-  width: 10%;
-  margin: 25px auto;
+  width: 50%;
+  padding: 3%;
   border-radius: 12px;
   cursor: pointer;
   border: none;
@@ -75,9 +76,11 @@ label {
   flex-direction: column;
   justify-content: center;
   width: 300px;
-  height: 440px;
+  height: 550px;
   background-color: #e6e6e6cf;
   border-radius: 15px;
-  box-shadow: 0px 0px 15px 5px #dd2136;
+  padding: 25px 35px;
+  margin: 30px 200px;
+  box-shadow: 0px 0px 15px 5px #4d4a4a83;
 }
 </style>

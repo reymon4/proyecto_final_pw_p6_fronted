@@ -16,9 +16,8 @@
           <th>Estado Reserva</th>
           <th>Iva</th>
           <th>Total</th>
-          <th>CedulaCliente</th>
+          <th>Cedula Cliente</th>
           <th>Apellido Cliente</th>
-          <th>Hobbie</th>
           <th>Placa</th>
           <th>Marca</th>
           <th>Modelo</th>
@@ -35,7 +34,6 @@
           <td>{{ reserva.total }}</td>
           <td>{{ reserva.cedula }}</td>
           <td>{{ reserva.apellido }}</td>
-          <td>{{ reserva.hobbie }}</td>
           <td>{{ reserva.placa }}</td>
           <td>{{ reserva.marca }}</td>
           <td>{{ reserva.modelo }}</td>
@@ -70,38 +68,31 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos para la tabla */
-.tabla {
-  margin-top: 20px;
-  display: grid;
+.tabla table {
   width: 100%;
   border-collapse: collapse;
-  justify-content: center;
-}
-/* Estilos para las celdas de encabezado */
-.tabla th {
-  background-color: #4b3f53;
-  /*   border: 1px solid #dddddd; */
-  padding: 8px;
-  text-align: left;
-  color: #f1bf57;
 }
 
-/* Estilos para las celdas de datos */
+.tabla th,
 .tabla td {
-  border: 1px solid #dddddd;
-  padding: 8px;
+  padding: 35px;
+  margin: 15px;
   text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Estilos para las filas impares */
-.tabla tr:nth-child(odd) {
+.tabla th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+.tabla tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Bordes redondos para la tabla */
-.tabla {
-  border-radius: 10px;
-  overflow: hidden;
+.tabla tr:hover {
+  background-color: #b6b0b0;
 }
+
 </style>
