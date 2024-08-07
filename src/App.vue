@@ -94,6 +94,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+}
+body,html{
+  margin: 0%;
 }
 
 #logo {
@@ -105,7 +109,7 @@ export default {
 }
 
 .container {
-  margin-bottom: 100px;
+  /*margin-bottom: 100px;*/
 }
 
 button {
@@ -134,7 +138,7 @@ footer {
   color: #c7c7c7;
   font-size: 1vmin;
   text-transform: uppercase;
-  position: fixed;
+  /*  position: fixed;*/
   bottom: 10px;
 }
 #idNavBar {

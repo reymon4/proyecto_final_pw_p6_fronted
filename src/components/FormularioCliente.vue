@@ -227,7 +227,7 @@ export default {
   border-radius: 15px;
   padding: 25px 35px;
   margin: 25px auto;
-  box-shadow: 0px 0px 10px 5px #dd2136;
+  box-shadow: 0px 0px 10px 5px #4d4a4a83;
 }
 
 label {
