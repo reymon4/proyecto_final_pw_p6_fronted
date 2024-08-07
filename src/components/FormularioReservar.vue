@@ -110,6 +110,7 @@ label {
 .item_large {
   grid-column: span 2; /* El elemento ocupa dos columnas */
 }
+
 .btnReservar {
   width: 25%;
   padding: 10px 10px;

@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
+    <!-- asd -->
   </head>
   <body>
     <div class="container">
@@ -27,9 +28,7 @@
 
       <footer>
         <h1>© Programación Web 2024-2024</h1>
-        <h2>
-        Avis Rent a Car System, LLC. Todos los derechos reservados.
-        </h2>
+        <h2>Avis Rent a Car System, LLC. Todos los derechos reservados.</h2>
         <h2>
           Síganos:
           <a
@@ -87,16 +86,16 @@ export default {
 };
 </script>
 
-<style >
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-
 }
-body,html{
+body,
+html {
   margin: 0%;
 }
 
@@ -143,7 +142,7 @@ footer {
 }
 #idNavBar {
   width: 90%;
-  text-align: right
+  text-align: right;
 }
 
 .router {
