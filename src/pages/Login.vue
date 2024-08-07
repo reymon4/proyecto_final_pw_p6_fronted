@@ -58,7 +58,7 @@ export default {
         this.contrasenia === ""
       ) {
         mensaje("Error....", "No puedes dejar los campos vacios", "error");
-      } else if (this.cedula === "daniel"||"henry"||"juan"||"willan"||"reymon" && this.contrasenia === "admin") {
+      } else if (this.cedula === "admin" && this.contrasenia === "admin") {
         mensaje(
           "Iniciando Sesion...",
           "Iniciando Sesion como Administrador",
