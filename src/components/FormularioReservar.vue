@@ -54,7 +54,8 @@ export default {
       console.log(valor);
       var listaReservasPrevias = await obtenerReservasPreviasFachada(
         this.fechaInicio,
-        this.fechaFin
+        this.fechaFin,
+        this.placa
       );
       console.log("FormularioReservar.vue > reservar > listaReservasPrevias: ");
       console.log(listaReservasPrevias);

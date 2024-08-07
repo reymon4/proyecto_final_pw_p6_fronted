@@ -61,10 +61,10 @@ const obtenerReporteReservas = async (fechaInicio, fechaFin) => {
   return data;
 };
 
-const obtenerReservasPrevias = async (fechaInicio, fechaFin) => {
+const obtenerReservasPrevias = async (fechaInicio, fechaFin, placa) => {
   const data = axios
     .get(`http://localhost:8081/API/v1.0/AVIS/reservas/comprobar`, {
-      params: { fechaInicio, fechaFin },
+      params: { fechaInicio, fechaFin, placa },
     })
     .then((r) => r.data);
   console.log("clienteReserva.js > obtenerReservasPrevias > data: ");
@@ -98,6 +98,10 @@ export const obtenerCobroFachada = async (body) => {
   return await obtenerCobro(body);
 };
 
-export const obtenerReservasPreviasFachada = async (fechaInicio, fechaFin) => {
-  return await obtenerReservasPrevias(fechaInicio, fechaFin);
+export const obtenerReservasPreviasFachada = async (
+  fechaInicio,
+  fechaFin,
+  placa
+) => {
+  return await obtenerReservasPrevias(fechaInicio, fechaFin, placa);
 };
