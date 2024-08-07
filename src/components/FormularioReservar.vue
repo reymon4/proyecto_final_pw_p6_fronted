@@ -1,25 +1,28 @@
 <template>
   <div class="imagenFondo">
     <div class="container">
-    <h1>Reservar</h1>
-    <div class="formulario">
-    <label for="">Placa</label>
-    <input type="text" v-model="placa" />
-    <label for="">Cédula</label>
-    <input type="text" v-model="cedula" />
-    <label for="">Fecha de Inicio</label>
-    <input type="datetime-local" v-model="fechaInicio" />
-    <label for="">Fecha Final</label>
-    <input type="datetime-local" v-model="fechaFin" />
-    <button @click="reservar" class="btnReservar">Guardar</button>
+      <h1>Reservar</h1>
+      <div class="formulario">
+        <label for="">Placa</label>
+        <input type="text" v-model="placa" />
+        <label for="">Cédula</label>
+        <input type="text" v-model="cedula" />
+        <label for="">Fecha de Inicio</label>
+        <input type="datetime-local" v-model="fechaInicio" />
+        <label for="">Fecha Final</label>
+        <input type="datetime-local" v-model="fechaFin" />
+        <button @click="reservar" class="btnReservar">Guardar</button>
+      </div>
+    </div>
   </div>
-  </div>
-</div>
 </template>
 
 <script scoped>
 import { ElMessageBox } from "element-plus";
-import { consultarDisponibilidadFachada } from "@/clients/clienteReserva.js";
+import {
+  consultarDisponibilidadFachada,
+  obtenerReservasPreviasFachada,
+} from "@/clients/clienteReserva.js";
 export default {
   props: {
     placaRecibida: {},
@@ -49,7 +52,14 @@ export default {
 
       const valor = await consultarDisponibilidadFachada(clienteBody);
       console.log(valor);
-      if (valor.disponibilidad) {
+      var listaReservasPrevias = await obtenerReservasPreviasFachada(
+        this.fechaInicio,
+        this.fechaFin
+      );
+      console.log("FormularioReservar.vue > reservar > listaReservasPrevias: ");
+      console.log(listaReservasPrevias);
+
+      if (valor.disponibilidad && listaReservasPrevias.length == 0) {
         console.log("¡Se puede reservar el vehículo!");
         console.log(clienteBody);
         this.mensaje(
@@ -66,7 +76,7 @@ export default {
         this.mensaje(
           "Fecha no disponible",
           "Seleccione otra fecha para reservar. El vehículo se encuentra disponible a partir de " +
-            valor.valorReserva,
+            listaReservasPrevias.pop().fechaFin,
           "error"
         );
       }
@@ -97,11 +107,10 @@ label {
   text-align: left;
 }
 
-
 .item_large {
   grid-column: span 2; /* El elemento ocupa dos columnas */
 }
-.btnReservar{
+.btnReservar {
   width: 25%;
   padding: 10px 10px;
   margin: 15px;
@@ -111,14 +120,12 @@ label {
   cursor: pointer;
   border: none;
   font-size: 15px;
-  
- 
 }
 .btnReservar:hover {
   background-color: #58b956;
 }
 
-.formulario{
+.formulario {
   display: flex;
   flex-direction: column;
   justify-content: center;
